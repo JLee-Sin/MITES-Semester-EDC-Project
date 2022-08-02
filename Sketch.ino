@@ -15,6 +15,7 @@ void setup() {
   pinMode(BUTTON_PIN, INPUT);
   pinMode(VERBOSE_PIN, INPUT);
   lastButtonState = digitalRead(BUTTON_PIN);
+  Serial.begin(9600);
 }
 
 void loop() {
