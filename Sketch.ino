@@ -48,7 +48,9 @@ void verboseOut() {
   if(potVal != analogRead(VERBOSE_PIN)) {
     potVal = analogRead(VERBOSE_PIN);
     float temp = (potVal/1023)*10;
-    Serial.println("Current speed is " + temp + "% ", 0);
+    Serial.print("Current speed is ");
+    Serial.print(temp);
+    Serial.println("% ");
   }
 }
   
