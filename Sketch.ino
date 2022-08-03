@@ -1,14 +1,3 @@
-#define LED_PIN 3
-#define BUTTON_PIN 2
-#define VERBOSE_PIN A0
-byte lastButtonState = LOW;
-byte ledState = LOW;
-float potVal = 0;
-float dutyCycle = 0;
-
-unsigned long lastTimeButtonStateChanged = millis();
-unsigned long debounceDuration = 50;
-
 
 void setup() {
   pinMode(LED_PIN, OUTPUT);
@@ -48,11 +37,11 @@ void controlButtonPush() {
 void verboseOut() {
   if(potVal != analogRead(VERBOSE_PIN)) {
     potVal = analogRead(VERBOSE_PIN);
-    float temp = (potVal/1023)*10;
+    float temp = map(potVal, 0, 1023, 0, 100);
     Serial.print("Current speed is ");
-    Serial.print(temp);
+    Serial.print(temp, 0);
     Serial.println("% ");
+    delay(2000);
   }
 }
-  
 
